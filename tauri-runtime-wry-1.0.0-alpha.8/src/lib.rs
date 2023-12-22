@@ -2782,6 +2782,7 @@ fn create_webview<T: UserEvent, F: Fn(RawWindow) + Send + 'static>(
         if let Some(additional_browser_args) = webview_attributes.additional_browser_args {
             // 筛选出代理配置和其他参数
             if let Some(proxy_config) = additional_browser_args
+                .clone()
                 .split_whitespace()
                 .find(|arg| arg.starts_with("--proxy="))
                 .map(|s| s.trim_start_matches("--proxy=").to_string())
@@ -2791,15 +2792,21 @@ fn create_webview<T: UserEvent, F: Fn(RawWindow) + Send + 'static>(
                         webview_builder.with_proxy_config(proxy_settings.proxy_config());
                 }
             }
+
+            #[cfg(windows)]
+            {
+                webview_builder =
+                    webview_builder.with_additional_browser_args(&additional_browser_args);
+            }
         }
     }
 
     #[cfg(windows)]
     {
-        if let Some(additional_browser_args) = webview_attributes.additional_browser_args {
-            webview_builder =
-                webview_builder.with_additional_browser_args(&additional_browser_args);
-        }
+        // if let Some(additional_browser_args) = webview_attributes.additional_browser_args {
+        //     webview_builder =
+        //         webview_builder.with_additional_browser_args(&additional_browser_args);
+        // }
         if let Some(theme) = window_theme {
             webview_builder = webview_builder.with_theme(match theme {
                 TaoTheme::Dark => wry::Theme::Dark,
