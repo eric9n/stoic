@@ -45,13 +45,10 @@ jobs:
       - name: install frontend dependencies
         run: |
           yarn install # 或 npm install，取决于您使用的是哪个
-
       - name: Build Tauri App
-      uses: tauri-apps/tauri-action@dev
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        args: build
+        uses: tauri-apps/tauri-action@dev
+        with:
+          args: build
 
       # - uses: tauri-apps/tauri-action@v0
       #   env:
