@@ -35,16 +35,14 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.0-dev libappindicator3-dev librsvg2-dev patchelf
 
-      # - name: install frontend dependencies
-      #   run: |
-      #     cd antoi # 切换到包含 package.json 的子目录
-      #     yarn install # 或 npm install，取决于您使用的是哪个
+      - name: install frontend dependencies
+        run: |
+          yarn install # 或 npm install，取决于您使用的是哪个
 
       - uses: tauri-apps/tauri-action@v0.4.5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          projectPath: antoi
           tagName: app-v__VERSION__ # the action automatically replaces \_\_VERSION\_\_ with the app version
           releaseName: "App v__VERSION__"
           releaseBody: "See the assets to download this version and install."
