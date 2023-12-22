@@ -40,7 +40,7 @@ jobs:
       #     cd antoi # 切换到包含 package.json 的子目录
       #     yarn install # 或 npm install，取决于您使用的是哪个
 
-      - uses: tauri-apps/tauri-action@v0
+      - uses: tauri-apps/tauri-action@v0.4.5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
