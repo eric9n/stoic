@@ -30,9 +30,15 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
 
       - name: install dependencies (ubuntu only)
-        if: matrix.platform == 'ubuntu-20.04'
+        if: matrixplatform == 'macos-latest'
+        run: |
+          xcode-select --install
+
+      - name: install dependencies (ubuntu only)
+        if: matrixplatform == 'ubuntu-20.04'
         run: |
           sudo apt-get update
+          sudo apt install -y libwebkit2gtk-4.1-dev build-essential curl wget file libssl-dev libayatana-appindicator3-dev librsvg2-dev
           sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.0-dev libappindicator3-dev librsvg2-dev patchelf libglib2.0-dev
 
       - name: install frontend dependencies
