@@ -1,14 +1,16 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "build": {
-    "beforeBuildCommand": "",
-    "beforeDevCommand": "",
-    "devPath": "../src/index.html",
-    "distDir": "../src"
+    "beforeBuildCommand": "cd stoic && npm run build",
+    "beforeDevCommand": "cd stoic && npm run build",
+    "devPath": "../dist",
+    "distDir": "../dist"
   },
   "package": {
     "productName": "stoic",
     "version": "1.0.0"
+  },
+  "plugins": {
   },
   "tauri": {
     "bundle": {

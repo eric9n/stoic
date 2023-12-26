@@ -1,8 +1,8 @@
 [package]
-name = "app"
+name = "stoic"
 version = "0.1.0"
-description = "A Tauri App"
-authors = ["you"]
+description = "Stoic"
+authors = ["dagou"]
 license = ""
 repository = ""
 edition = "2021"
@@ -21,6 +21,12 @@ tauri-build = { version = "2.0.0-alpha.13", features = [] }
 serde_json = "1.0"
 serde = { version = "1.0", features = ["derive"] }
 tauri = { version = "2.0.0-alpha.20", features = [] }
+# tauri-plugin-fs = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v2" }
+tauri-plugin-log = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v2" }
+tauri-plugin-positioner = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v2" }
+tauri-plugin-store = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v2" }
+log = "^0.4"
+
 
 [patch.crates-io]
 tauri-runtime-wry = { path = "../tauri-runtime-wry-1.0.0-alpha.8" }

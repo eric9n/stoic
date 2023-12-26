@@ -1,5 +1,3 @@
-.DS_Store
-
 # Logs
 logs
 *.log
@@ -9,12 +7,11 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-**/node_modules/
-**/dist/
-**/dist-ssr/
+node_modules
+dist
+dist-ssr
 *.local
 
-**/target
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -25,5 +22,3 @@ lerna-debug.log*
 *.njsproj
 *.sln
 *.sw?
-settings.toml
-

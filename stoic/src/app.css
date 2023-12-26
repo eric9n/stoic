@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 针对所有浏览器 */
+html, body {
+    overflow-x: hidden; /* 隐藏水平滚动条 */
+    overflow-y: hidden; /* 隐藏垂直滚动条 */
+}
+
+/* 针对 Firefox */
+html, body {
+    scrollbar-width: none;
+}
+
+/* 针对 Chrome, Safari 和 Opera */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+}
